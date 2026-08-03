@@ -1,0 +1,5 @@
+{
+	"name": "telegram-api-proxy",
+	"version": "0.14.0",
+	"main": "src/index.js"
+}

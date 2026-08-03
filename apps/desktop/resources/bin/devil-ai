@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+#
+# devil-ai — Open the installed Devil AI desktop application.
+#
+# This script is bundled inside the Devil-ai.app package and symlinked
+# to /usr/local/bin/devil-ai by the "Install CLI Command" action.
+#
+# Usage:
+#   devil-ai              Open Devil AI (or focus existing window)
+#   devil-ai /path/to/dir Open Devil AI with a specific project directory
+
+set -euo pipefail
+
+case "$(uname -s)" in
+	Darwin)
+		# Resolve the .app bundle — this script lives at
+		# Palot.app/Contents/Resources/bin/palot
+		# Use readlink to resolve symlinks so this works from /usr/local/bin too
+		RESOLVED="$0"
+		while [ -L "$RESOLVED" ]; do
+			DIR="$(cd "$(dirname "$RESOLVED")" && pwd)"
+			RESOLVED="$(readlink "$RESOLVED")"
+			[[ "$RESOLVED" != /* ]] && RESOLVED="$DIR/$RESOLVED"
+		done
+		SCRIPT_DIR="$(cd "$(dirname "$RESOLVED")" && pwd)"
+		APP_BUNDLE="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+
+		if [[ "$APP_BUNDLE" != *.app ]]; then
+			echo "Devil AI CLI is running in Development Mode."
+			echo "To test the CLI properly, you must build the app first (e.g. 'bun run package:mac')."
+			echo "The CLI only works with a packaged .app bundle."
+			exit 0
+		fi
+
+		if [ $# -gt 0 ]; then
+			open -a "$APP_BUNDLE" --args "$@"
+		else
+			open -a "$APP_BUNDLE"
+		fi
+		;;
+	Linux)
+		# On Linux the binary is typically at a known location
+		SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+		ELECTRON_BIN="$(cd "$SCRIPT_DIR/.." && pwd)/devil-ai"
+
+		if [ -x "$ELECTRON_BIN" ]; then
+			exec "$ELECTRON_BIN" "$@"
+		else
+			# Fallback: try system PATH
+			echo "Error: Could not find Devil AI binary at $ELECTRON_BIN" >&2
+			echo "Try launching from your application menu instead." >&2
+			exit 1
+		fi
+		;;
+	*)
+		echo "Error: Unsupported platform $(uname -s)" >&2
+		echo "On Windows, use 'devil-ai.cmd' instead." >&2
+		exit 1
+		;;
+esac

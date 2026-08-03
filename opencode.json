@@ -1,0 +1,395 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"instructions": ["**/AGENTS.local.md", "./.local/memory.md"],
+	"references": {
+		"osiris": {
+			"repository": "simplifaisoul/osiris",
+			"branch": "master",
+			"description": "OSINT platform - Real-time global intelligence dashboard with flight tracking, CCTV, earthquakes, conflict zones, crypto wallet tracing, and OFAC sanctions search. Use for security research, intelligence gathering, and OSINT tasks."
+		},
+		"public-apis": {
+			"repository": "public-apis/public-apis",
+			"branch": "master",
+			"description": "Curated list of 1400+ free public APIs across 50+ categories (Animals, Anime, Weather, Finance, Security, etc.). Use when needing to find or integrate external APIs for any project."
+		},
+		"claude-skills": {
+			"repository": "ComposioHQ/awesome-claude-skills",
+			"branch": "master",
+			"description": "1000+ ready-made Claude Skills for document processing, development, business automation, security, creative tasks. Use to find pre-built skills for any workflow or automation task."
+		}
+	},
+
+	"model": "ollama/qwen2.5-coder:3b",
+	"provider": {
+		"ollama": {
+			"api": "ollama",
+			"options": {
+				"baseURL": "http://127.0.0.1:11434/api"
+			},
+			"models": {
+				"qwen2.5-coder:3b": {
+					"name": "qwen2.5-coder:3b",
+					"tool_call": true
+				}
+			}
+		},
+		"google": {
+			"api": "google",
+			"options": {
+				"apiKey": "${GOOGLE_API_KEY}"
+			}
+		},
+		"groq": {
+			"api": "openai",
+			"options": {
+				"apiKey": "${GROQ_API_KEY}",
+				"baseURL": "https://api.groq.com/openai/v1"
+			}
+		},
+		"privatemode-ai": {
+			"api": "anthropic",
+			"options": {
+				"apiKey": "${AGENT_ROUTER_TOKEN}",
+				"baseURL": "https://agentrouter.org/v1"
+			},
+			"models": {
+				"gpt-5.5": {
+					"name": "claude-opus-4-8",
+					"tool_call": true,
+					"attachment": true,
+					"headers": {
+						"User-Agent": "Cline/1.0.0",
+						"X-Title": "Cline",
+						"AGENT_ROUTER_TOKEN": "${AGENT_ROUTER_TOKEN}",
+						"CODEX_MODEL": "claude-opus-4-8"
+					}
+				}
+			}
+		}
+	},
+	"mcp": {
+		"nmap": {
+			"type": "local",
+			"command": ["nmap", "-V"]
+		},
+		"nuclei": {
+			"type": "local",
+			"command": ["nuclei", "-version"]
+		},
+		"sqlmap": {
+			"type": "local",
+			"command": ["sqlmap", "--version"]
+		},
+		"ffuf": {
+			"type": "local",
+			"command": ["ffuf", "-V"]
+		},
+		"nikto": {
+			"type": "local",
+			"command": ["nikto", "-Version"]
+		},
+		"hashcat": {
+			"type": "local",
+			"command": ["hashcat", "--version"]
+		},
+		"john": {
+			"type": "local",
+			"command": ["john", "--version"]
+		},
+		"hydra": {
+			"type": "local",
+			"command": ["hydra", "-h"]
+		},
+		"wafw00f": {
+			"type": "local",
+			"command": ["wafw00f", "-v"]
+		},
+		"subfinder": {
+			"type": "local",
+			"command": ["subfinder", "-version"]
+		},
+		"amass": {
+			"type": "local",
+			"command": ["amass", "-version"]
+		},
+		"masscan": {
+			"type": "local",
+			"command": ["masscan", "--version"]
+		},
+		"rustscan": {
+			"type": "local",
+			"command": ["rustscan", "--version"]
+		},
+		"theharvester": {
+			"type": "local",
+			"command": ["theHarvester", "-h"]
+		},
+		"gobuster": {
+			"type": "local",
+			"command": ["gobuster", "version"]
+		},
+		"dirsearch": {
+			"type": "local",
+			"command": ["dirsearch", "--version"]
+		},
+		"feroxbuster": {
+			"type": "local",
+			"command": ["feroxbuster", "--version"]
+		},
+		"dalfox": {
+			"type": "local",
+			"command": ["dalfox", "version"]
+		},
+		"xsstrike": {
+			"type": "local",
+			"command": ["xsstrike", "--version"]
+		},
+		"bettercap": {
+			"type": "local",
+			"command": ["bettercap", "-eval", "version"]
+		},
+		"wifite": {
+			"type": "local",
+			"command": ["wifite", "--version"]
+		},
+		"responder": {
+			"type": "local",
+			"command": ["responder", "--version"]
+		},
+		"bloodhound": {
+			"type": "local",
+			"command": ["bloodhound-python", "--version"]
+		},
+		"impacket": {
+			"type": "local",
+			"command": ["impacket-smbclient", "--help"]
+		},
+		"prowler": {
+			"type": "local",
+			"command": ["prowler", "--version"]
+		},
+		"trivy": {
+			"type": "local",
+			"command": ["trivy", "--version"]
+		},
+		"ghidra": {
+			"type": "local",
+			"command": ["ghidra", "--help"]
+		},
+		"radare2": {
+			"type": "local",
+			"command": ["r2", "-v"]
+		},
+		"frida": {
+			"type": "local",
+			"command": ["frida", "--version"]
+		},
+		"sherlock": {
+			"type": "local",
+			"command": ["sherlock", "--version"]
+		},
+		"setoolkit": {
+			"type": "local",
+			"command": ["setoolkit", "--help"]
+		},
+		"mitmproxy": {
+			"type": "local",
+			"command": ["mitmproxy", "--version"]
+		},
+		"wireshark": {
+			"type": "local",
+			"command": ["wireshark", "--version"]
+		},
+		"autopsy": {
+			"type": "local",
+			"command": ["autopsy", "--help"]
+		},
+		"volatility": {
+			"type": "local",
+			"command": ["vol3", "--help"]
+		},
+		"binwalk": {
+			"type": "local",
+			"command": ["binwalk", "--help"]
+		},
+		"metasploit": {
+			"type": "local",
+			"command": ["msfconsole", "--version"]
+		},
+		"sliver": {
+			"type": "local",
+			"command": ["sliver", "version"]
+		},
+		"pwncat": {
+			"type": "local",
+			"command": ["pwncat-cs", "--help"]
+		},
+		"chisel": {
+			"type": "local",
+			"command": ["chisel", "--version"]
+		},
+		"cupp": {
+			"type": "local",
+			"command": ["cupp", "--help"]
+		},
+		"slowloris": {
+			"type": "local",
+			"command": ["slowloris", "--help"]
+		},
+		"stegcracker": {
+			"type": "local",
+			"command": ["stegcracker", "--help"]
+		},
+		"certipy": {
+			"type": "local",
+			"command": ["certipy", "--help"]
+		},
+		"kerbrute": {
+			"type": "local",
+			"command": ["kerbrute", "--help"]
+		},
+		"pacu": {
+			"type": "local",
+			"command": ["pacu", "--help"]
+		},
+		"scoutsuite": {
+			"type": "local",
+			"command": ["scout", "--help"]
+		},
+		"mobsf": {
+			"type": "local",
+			"command": ["mobsf", "--help"]
+		},
+		"objection": {
+			"type": "local",
+			"command": ["objection", "--help"]
+		},
+		"httpx": {
+			"type": "local",
+			"command": ["httpx", "-version"]
+		},
+		"katana": {
+			"type": "local",
+			"command": ["katana", "-version"]
+		},
+		"waybackurls": {
+			"type": "local",
+			"command": ["echo", "installed"]
+		},
+		"gau": {
+			"type": "local",
+			"command": ["gau", "--version"]
+		},
+		"subjack": {
+			"type": "local",
+			"command": ["subjack", "-h"]
+		},
+		"kiterunner": {
+			"type": "local",
+			"command": ["kr", "--version"]
+		},
+		"dnsx": {
+			"type": "local",
+			"command": ["dnsx", "-version"]
+		},
+		"uncover": {
+			"type": "local",
+			"command": ["uncover", "-version"]
+		},
+		"wapiti": {
+			"type": "local",
+			"command": ["wapiti", "--version"]
+		},
+		"wfuzz": {
+			"type": "local",
+			"command": ["wfuzz", "--version"]
+		},
+		"arjun": {
+			"type": "local",
+			"command": ["arjun", "--version"]
+		},
+		"cewl": {
+			"type": "local",
+			"command": ["cewl", "--help"]
+		},
+		"crunch": {
+			"type": "local",
+			"command": ["crunch", "--help"]
+		},
+		"grype": {
+			"type": "local",
+			"command": ["grype", "version"]
+		},
+		"syft": {
+			"type": "local",
+			"command": ["syft", "version"]
+		},
+		"checkov": {
+			"type": "local",
+			"command": ["checkov", "--version"]
+		},
+		"semgrep": {
+			"type": "local",
+			"command": ["semgrep", "--version"]
+		},
+		"bandit": {
+			"type": "local",
+			"command": ["bandit", "--version"]
+		},
+		"gitleaks": {
+			"type": "local",
+			"command": ["gitleaks", "version"]
+		},
+		"trufflehog": {
+			"type": "local",
+			"command": ["trufflehog", "--version"]
+		},
+		"apktool": {
+			"type": "local",
+			"command": ["apktool", "--version"]
+		},
+		"jadx": {
+			"type": "local",
+			"command": ["jadx", "--version"]
+		},
+		"zmap": {
+			"type": "local",
+			"command": ["zmap", "--version"]
+		},
+		"unicornscan": {
+			"type": "local",
+			"command": ["unicornscan", "--help"]
+		},
+		"netdiscover": {
+			"type": "local",
+			"command": ["netdiscover", "--help"]
+		},
+		"ligolo": {
+			"type": "local",
+			"command": ["ligolo-proxy", "--help"]
+		},
+		"sleuthkit": {
+			"type": "local",
+			"command": ["fls", "-V"]
+		},
+		"bulk-extractor": {
+			"type": "local",
+			"command": ["bulk_extractor", "--help"]
+		},
+		"foremost": {
+			"type": "local",
+			"command": ["foremost", "-V"]
+		},
+		"cloud_enum": {
+			"type": "local",
+			"command": ["cloud_enum", "--help"]
+		},
+		"image-gen": {
+			"type": "local",
+			"command": [
+				"node",
+				"/Users/gunjan/Downloads/devil-ai/apps/desktop/src/main/image-gen-mcp/dist/server.js"
+			]
+		}
+	}
+}

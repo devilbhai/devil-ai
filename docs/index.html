@@ -26,7 +26,11 @@
             --font-code: 'Fira Code', monospace;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             background-color: var(--bg-dark);
@@ -41,6 +45,7 @@
             background-attachment: fixed;
         }
 
+        /* Glassmorphism utility */
         .glass-panel {
             background: var(--bg-card);
             backdrop-filter: blur(20px);
@@ -50,93 +55,549 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
-
-        nav {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 18px 0;
-            background: rgba(8, 9, 13, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass);
+        /* Container */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
-        .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent-red), var(--accent-purple)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 0 20px var(--accent-glow); }
-        .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: all 0.2s ease; }
-        .nav-links a:hover { color: #fff; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 0;
+            background: rgba(8, 9, 13, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-red), #e11d48); color: #fff; padding: 10px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 20px var(--accent-glow); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer;
+            background: linear-gradient(135deg, var(--accent-red), #e11d48);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(255, 42, 95, 0.6); }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 42, 95, 0.6);
+        }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.05); color: var(--text-primary); padding: 10px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1px solid var(--border-glass); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
-        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
 
-        .hero { padding: 160px 0 100px; text-align: center; }
-        .badge-hero { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(255, 42, 95, 0.1); border: 1px solid rgba(255, 42, 95, 0.3); border-radius: 50px; color: var(--accent-red); font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        .hero h1 { font-family: var(--font-heading); font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1.5px; background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero h1 span { background: linear-gradient(135deg, var(--accent-red), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 760px; margin: 0 auto 40px; }
-        .hero-cta { display: flex; justify-content: center; gap: 16px; margin-bottom: 60px; }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
 
-        .features { padding: 80px 0; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; }
-        .section-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-        .feature-card { padding: 32px; transition: all 0.3s ease; }
-        .feature-card:hover { transform: translateY(-6px); border-color: var(--border-glow); box-shadow: 0 20px 40px rgba(255, 42, 95, 0.15); }
-        .feature-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(255, 42, 95, 0.1); border: 1px solid rgba(255, 42, 95, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; color: var(--accent-red); }
-        .feature-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
-        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+        }
 
-        footer { padding: 60px 0; border-top: 1px solid var(--border-glass); text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
-        @media (max-width: 900px) { .hero h1 { font-size: 2.8rem; } .features-grid { grid-template-columns: repeat(1, 1fr); } }
+        .badge-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(255, 42, 95, 0.1);
+            border: 1px solid rgba(255, 42, 95, 0.3);
+            border-radius: 50px;
+            color: var(--accent-red);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 760px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        /* Terminal Demo Window */
+        .window-container {
+            max-width: 960px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 42, 95, 0.15);
+        }
+
+        .window-header {
+            background: #12131a;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .window-title {
+            margin-left: auto;
+            margin-right: auto;
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .terminal-body {
+            background: #0c0d14;
+            padding: 24px;
+            font-family: var(--font-code);
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            text-align: left;
+            min-height: 280px;
+            overflow-x: auto;
+        }
+
+        .cmd-line {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .prompt {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        .output-highlight {
+            color: var(--accent-cyan);
+        }
+
+        /* Stats Grid */
+        .stats-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            background: rgba(18, 20, 29, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .feature-card {
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-glow);
+            box-shadow: 0 20px 40px rgba(255, 42, 95, 0.15);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(255, 42, 95, 0.1);
+            border: 1px solid rgba(255, 42, 95, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-red);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Install Snippet Section */
+        .install-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .install-box {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0d0e15;
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            font-family: var(--font-code);
+        }
+
+        .install-code {
+            color: var(--accent-cyan);
+            font-size: 0.95rem;
+            overflow-x: auto;
+            margin-right: 16px;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-red);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.8rem; }
+            .features-grid { grid-template-columns: repeat(1, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <div class="container nav-inner">
-            <a href="#" class="logo"><div class="logo-icon">😈</div> Devil AI</a>
+            <a href="#" class="logo">
+                <div class="logo-icon">😈</div>
+                Devil AI
+            </a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="https://github.com/devilbhai/devil-ai/releases" target="_blank">Releases</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#install">Quickstart</a></li>
+                <li><a href="https://github.com/devilbhai/devil-ai" target="_blank">GitHub</a></li>
             </ul>
-            <a href="https://github.com/devilbhai/devil-ai/releases" target="_blank" class="btn-primary">Download App ⚡</a>
+            <a href="https://github.com/devilbhai/devil-ai/releases" target="_blank" class="btn-primary">
+                Download App ⚡
+            </a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="badge-hero">⚡ Next-Gen Autonomous AI Coding Assistant</div>
             <h1>Empowering Engineers with <span>God-Tier AI Velocity</span></h1>
             <p>Native OpenCode integration, Swarm multi-agent refactoring, Worktree branch isolation, local TF-IDF RAG, and Liquid Glass macOS GUI.</p>
+            
             <div class="hero-cta">
-                <a href="https://github.com/devilbhai/devil-ai/releases" target="_blank" class="btn-primary">Download Desktop App</a>
-                <a href="https://github.com/devilbhai/devil-ai" target="_blank" class="btn-secondary">View on GitHub ⭐</a>
+                <a href="#install" class="btn-primary">Get Started in Seconds</a>
+                <a href="https://github.com/devilbhai/devil-ai" target="_blank" class="btn-secondary">
+                    View on GitHub ⭐
+                </a>
+            </div>
+
+            <!-- Terminal Mockup -->
+            <div class="window-container glass-panel">
+                <div class="window-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <div class="window-title">devil-ai --swarm --target src/core</div>
+                </div>
+                <div class="terminal-body" id="terminal-content">
+                    <div class="cmd-line"><span class="prompt">$</span> <span>devil-ai init --workspace .</span></div>
+                    <div class="cmd-line"><span class="output-highlight">✔ OpenCode Engine Connected (127.0.0.1:20128)</span></div>
+                    <div class="cmd-line"><span class="output-highlight">✔ 61+ Agent Capabilities Loaded</span></div>
+                    <div class="cmd-line"><span class="prompt">$</span> <span id="typing-text">devil-ai analyze --refactor --isolate-worktree</span></div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-card">
+                <h3>61+</h3>
+                <p>Native AI Capabilities</p>
+            </div>
+            <div class="stat-card">
+                <h3>10x</h3>
+                <p>Refactoring Speed</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Local & Private RAG</p>
+            </div>
+            <div class="stat-card">
+                <h3>0ms</h3>
+                <p>Context Switch Delay</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
                 <h2>Built for Power Engineers</h2>
                 <p>Designed from the ground up for privacy, speed, and complex codebase autonomy.</p>
             </div>
+
             <div class="features-grid">
-                <div class="feature-card glass-panel"><div class="feature-icon">🌿</div><h3>Git Worktree Isolation</h3><p>Sub-agents operate in temporary Git worktree branches without touching or corrupting your main working directory.</p></div>
-                <div class="feature-card glass-panel"><div class="feature-icon">🤖</div><h3>Swarm Multi-Agent Engine</h3><p>Deploys concurrent specialized agents to research, plan, execute, and verify complex architectural edits.</p></div>
-                <div class="feature-card glass-panel"><div class="feature-icon">🎨</div><h3>Liquid Glass UI</h3><p>Stunning macOS-native desktop interface with customizable dynamic glassmorphism and Cmd+K command palette.</p></div>
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Git Worktree Isolation</h3>
+                    <p>Sub-agents operate in isolated Git worktree branches without touching or corrupting your main working directory.</p>
+                </div>
+
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Swarm Multi-Agent Engine</h3>
+                    <p>Deploys concurrent specialized agents to research, plan, execute, and verify complex architectural edits.</p>
+                </div>
+
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon">⚡</div>
+                    <h3>OpenCode Native Backend</h3>
+                    <p>Direct low-latency communication with OpenCode CLI for lightning-fast file indexing and execution.</p>
+                </div>
+
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Local TF-IDF RAG</h3>
+                    <p>Instant semantic code search using pure local indexing — zero third-party data tracking or cloud dependence.</p>
+                </div>
+
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon">📱</div>
+                    <h3>Telegram Remote Control</h3>
+                    <p>Control your local Devil AI agent remotely via secure Cloudflare OTP tunnels right from your phone.</p>
+                </div>
+
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Liquid Glass UI</h3>
+                    <p>Stunning macOS-native desktop interface with customizable dynamic glassmorphism and Cmd+K command palette.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Quickstart / Install -->
+    <section class="install-section" id="install">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Installation</h2>
+                <p>Install the CLI tool or download the macOS/Windows Desktop bundle.</p>
+            </div>
+
+            <div class="install-box">
+                <code class="install-code" id="install-cmd">curl -fsSL https://raw.githubusercontent.com/devilbhai/devil-ai/main/packages/devil-ai-cli/install.sh | bash</code>
+                <button class="copy-btn" onclick="copyInstallCmd()">Copy 📋</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>© 2026 Devil AI Team (Ghost Rider). Released under the MIT License.</p>
+            <p style="margin-top: 8px;">Created for ultimate developer productivity & autonomous coding excellence.</p>
         </div>
     </footer>
+
+    <script>
+        function copyInstallCmd() {
+            const cmd = document.getElementById('install-cmd').innerText;
+            navigator.clipboard.writeText(cmd);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerText = 'Copied! ✅';
+            setTimeout(() => { btn.innerText = 'Copy 📋'; }, 2000);
+        }
+    </script>
 </body>
 </html>

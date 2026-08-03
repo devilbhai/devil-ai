@@ -1,0 +1,89 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.next/
+out/
+
+# Turborepo
+.turbo/
+
+# Tauri
+src-tauri/target/
+
+# Electron Builder
+release/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Research (local only)
+research/
+
+# Private docs and notes (local only)
+.private/
+
+# Local agent instructions (private per-developer)
+AGENTS.local.md
+
+# Git worktrees
+.worktrees/
+
+# Local working directory
+.local/
+
+# Backup files
+*.bak
+
+# Test artifacts (root-level throwaway scripts)
+proxy*.js
+test*.c
+test_bin
+test_macho
+test_sign
+test_ai.mjs
+test-api*.mjs
+test-chat.ts
+test-copilot.mjs
+test-ollama.mjs
+test_providers.js
+test_installer.ts
+fix_config.js
+patch_json.js
+patch_test.js
+dummy.txt
+
+# Signing certificates (never commit)
+*.pem
+*.cer
+*.p12
+*.pfx
+*.keychain
+temp_keychain/
+
+# Database files (never commit)
+*.db
+*.db-journal
+*.db-wal
+
+# Local config with secrets
+config.json
+
+# Build archives
+*.tar.gz

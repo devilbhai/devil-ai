@@ -1,0 +1,20 @@
+{
+	"$schema": "https://ui.shadcn.com/schema.json",
+	"style": "base-vega",
+	"rsc": false,
+	"tsx": true,
+	"tailwind": {
+		"config": "",
+		"css": "src/styles/globals.css",
+		"baseColor": "zinc",
+		"cssVariables": true
+	},
+	"iconLibrary": "lucide",
+	"aliases": {
+		"components": "@devil-ai/ui/components",
+		"hooks": "@devil-ai/ui/hooks",
+		"lib": "@devil-ai/ui/lib",
+		"utils": "@devil-ai/ui/lib/utils",
+		"ui": "@devil-ai/ui/components"
+	}
+}

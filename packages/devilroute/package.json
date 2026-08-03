@@ -1,0 +1,10 @@
+{
+	"name": "devilroute",
+	"version": "3.8.49",
+	"description": "DevilRoute — local AI gateway for Devil AI. A rebranded fork of OmniRoute: unified AI router with 160+ providers, OpenAI-compatible /v1 APIs, and a local web console.",
+	"private": true,
+	"scripts": {
+		"convert": "bash scripts/convert.sh",
+		"publish": "bash scripts/publish.sh"
+	}
+}

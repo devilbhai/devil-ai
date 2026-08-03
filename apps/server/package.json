@@ -1,0 +1,36 @@
+{
+	"name": "@devil-ai/server",
+	"version": "0.15.0",
+	"private": true,
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/src/index.d.ts",
+			"default": "./src/index.ts"
+		},
+		"./client": {
+			"types": "./dist/src/client.d.ts",
+			"default": "./src/client.ts"
+		}
+	},
+	"scripts": {
+		"predev": "lsof -i :3100 -t | xargs kill -9 2>/dev/null || true",
+		"dev": "bun run --hot src/index.ts",
+		"build": "tsc && bun build src/index.ts --outdir dist --target bun",
+		"build:types": "tsc",
+		"check-types": "tsgo --noEmit"
+	},
+	"dependencies": {
+		"@devilcode/sdk": "workspace:*",
+		"bcryptjs": "^3.0.3",
+		"hono": "4.11.9",
+		"nodemailer": "^9.0.3"
+	},
+	"devDependencies": {
+		"@types/bcryptjs": "^3.0.0",
+		"@types/bun": "^1.2.14",
+		"@types/nodemailer": "^8.0.1",
+		"typescript": "^5.8.3"
+	}
+}

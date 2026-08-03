@@ -1,0 +1,28 @@
+{
+	"name": "@devil-ai/browser-automation",
+	"version": "0.1.0",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write ."
+	},
+	"dependencies": {
+		"playwright": "^1.44.0",
+		"ws": "^8.16.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.12.0",
+		"@types/ws": "^8.5.10",
+		"typescript": "^5.4.0"
+	}
+}

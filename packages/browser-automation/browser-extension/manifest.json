@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Devil AI Browser Control",
+  "version": "0.1.0",
+  "description": "Control browser from Devil AI desktop app",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "cookies",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["html2canvas.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Devil AI Browser Control"
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  }
+}

@@ -1,0 +1,478 @@
+{
+  "mcpServers": {
+    "nmap": {
+      "command": ["nmap"],
+      "description": "Network discovery and security auditing tool",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "nuclei": {
+      "command": ["nuclei"],
+      "description": "Fast vulnerability scanner based on templates",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "sqlmap": {
+      "command": ["sqlmap"],
+      "description": "Automatic SQL injection and database takeover tool",
+      "category": "sql-injection",
+      "dangerous": true
+    },
+    "ffuf": {
+      "command": ["ffuf"],
+      "description": "Fast web fuzzer for directory and parameter discovery",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "nikto": {
+      "command": ["nikto"],
+      "description": "Web server vulnerability scanner",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "hashcat": {
+      "command": ["hashcat"],
+      "description": "Advanced password recovery utility",
+      "category": "wordlist",
+      "dangerous": false
+    },
+    "john": {
+      "command": ["john"],
+      "description": "Password cracker",
+      "category": "wordlist",
+      "dangerous": false
+    },
+    "hydra": {
+      "command": ["hydra"],
+      "description": "Network logon cracker",
+      "category": "wordlist",
+      "dangerous": true
+    },
+    "wafw00f": {
+      "command": ["wafw00f"],
+      "description": "Web Application Firewall fingerprinting tool",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "subfinder": {
+      "command": ["subfinder"],
+      "description": "Subdomain discovery tool",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "amass": {
+      "command": ["amass"],
+      "description": "In-depth attack surface mapping and asset discovery",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "masscan": {
+      "command": ["masscan"],
+      "description": "TCP port scanner",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "rustscan": {
+      "command": ["rustscan"],
+      "description": "Fast port scanner written in Rust",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "theharvester": {
+      "command": ["theHarvester"],
+      "description": "Email, subdomain and name harvester",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "gobuster": {
+      "command": ["gobuster"],
+      "description": "Directory/file, DNS and VHost busting tool",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "dirsearch": {
+      "command": ["dirsearch"],
+      "description": "Web path scanner",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "feroxbuster": {
+      "command": ["feroxbuster"],
+      "description": "Fast, simple, recursive content discovery tool",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "dalfox": {
+      "command": ["dalfox"],
+      "description": "Powerful open-source XSS scanning tool",
+      "category": "xss",
+      "dangerous": false
+    },
+    "xsstrike": {
+      "command": ["xsstrike"],
+      "description": "Most advanced XSS scanner",
+      "category": "xss",
+      "dangerous": false
+    },
+    "bettercap": {
+      "command": ["bettercap"],
+      "description": "Swiss Army knife for WiFi, BLE and network attacks",
+      "category": "wireless",
+      "dangerous": true
+    },
+    "wifite": {
+      "command": ["wifite"],
+      "description": "Automated wireless attack tool",
+      "category": "wireless",
+      "dangerous": true
+    },
+    "responder": {
+      "command": ["responder"],
+      "description": "LLMNR, NBT-NS and MDNS poisoner",
+      "category": "active-directory",
+      "dangerous": true
+    },
+    "bloodhound": {
+      "command": ["bloodhound-python"],
+      "description": "Active Directory attack path finder",
+      "category": "active-directory",
+      "dangerous": false
+    },
+    "impacket": {
+      "command": ["impacket-smbclient"],
+      "description": "Network protocol tools",
+      "category": "active-directory",
+      "dangerous": true
+    },
+    "prowler": {
+      "command": ["prowler"],
+      "description": "AWS security assessment tool",
+      "category": "cloud",
+      "dangerous": false
+    },
+    "trivy": {
+      "command": ["trivy"],
+      "description": "Container vulnerability scanner",
+      "category": "cloud",
+      "dangerous": false
+    },
+    "ghidra": {
+      "command": ["ghidra"],
+      "description": "Software reverse engineering framework",
+      "category": "reverse-engineering",
+      "dangerous": false
+    },
+    "radare2": {
+      "command": ["r2"],
+      "description": "Reverse engineering framework",
+      "category": "reverse-engineering",
+      "dangerous": false
+    },
+    "frida": {
+      "command": ["frida"],
+      "description": "Dynamic instrumentation toolkit",
+      "category": "mobile",
+      "dangerous": false
+    },
+    "sherlock": {
+      "command": ["sherlock"],
+      "description": "Username OSINT tool",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "setoolkit": {
+      "command": ["setoolkit"],
+      "description": "Social engineering toolkit",
+      "category": "phishing",
+      "dangerous": true
+    },
+    "mitmproxy": {
+      "command": ["mitmproxy"],
+      "description": "Interactive HTTPS proxy",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "wireshark": {
+      "command": ["wireshark"],
+      "description": "Network protocol analyzer",
+      "category": "forensics",
+      "dangerous": false
+    },
+    "autopsy": {
+      "command": ["autopsy"],
+      "description": "Digital forensics platform",
+      "category": "forensics",
+      "dangerous": false
+    },
+    "volatility": {
+      "command": ["vol3"],
+      "description": "Memory forensics framework",
+      "category": "forensics",
+      "dangerous": false
+    },
+    "binwalk": {
+      "command": ["binwalk"],
+      "description": "Firmware analysis tool",
+      "category": "forensics",
+      "dangerous": false
+    },
+    "metasploit": {
+      "command": ["msfconsole"],
+      "description": "Penetration testing framework",
+      "category": "exploit-framework",
+      "dangerous": true
+    },
+    "sliver": {
+      "command": ["sliver"],
+      "description": "Adversary emulation / red team framework",
+      "category": "post-exploitation",
+      "dangerous": true
+    },
+    "pwncat": {
+      "command": ["pwncat-cs"],
+      "description": "Reverse shell manager",
+      "category": "post-exploitation",
+      "dangerous": true
+    },
+    "chisel": {
+      "command": ["chisel"],
+      "description": "Fast TCP/UDP tunnel over HTTP",
+      "category": "post-exploitation",
+      "dangerous": false
+    },
+    "cupp": {
+      "command": ["cupp"],
+      "description": "Common User Passwords Profiler",
+      "category": "wordlist",
+      "dangerous": false
+    },
+    "slowloris": {
+      "command": ["slowloris"],
+      "description": "HTTP DoS tool",
+      "category": "ddos",
+      "dangerous": true
+    },
+    "stegcracker": {
+      "command": ["stegcracker"],
+      "description": "Steganography brute-force tool",
+      "category": "steganography",
+      "dangerous": false
+    },
+    "certipy": {
+      "command": ["certipy"],
+      "description": "Active Directory Certificate Services abuse tool",
+      "category": "active-directory",
+      "dangerous": true
+    },
+    "kerbrute": {
+      "command": ["kerbrute"],
+      "description": "Kerberos brute-force tool",
+      "category": "active-directory",
+      "dangerous": true
+    },
+    "pacu": {
+      "command": ["pacu"],
+      "description": "AWS exploitation framework",
+      "category": "cloud",
+      "dangerous": true
+    },
+    "scoutsuite": {
+      "command": ["scout"],
+      "description": "Multi-cloud security auditing tool",
+      "category": "cloud",
+      "dangerous": false
+    },
+    "mobsf": {
+      "command": ["mobsf"],
+      "description": "Mobile Security Framework",
+      "category": "mobile",
+      "dangerous": false
+    },
+    "objection": {
+      "command": ["objection"],
+      "description": "Runtime mobile exploration",
+      "category": "mobile",
+      "dangerous": false
+    },
+    "httpx": {
+      "command": ["httpx"],
+      "description": "Fast HTTP probing and technology detection",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "katana": {
+      "command": ["katana"],
+      "description": "Web crawler by ProjectDiscovery",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "waybackurls": {
+      "command": ["waybackurls"],
+      "description": "Fetch URLs from Wayback Machine",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "gau": {
+      "command": ["gau"],
+      "description": "Fetch known URLs from AlienVault OTX, Wayback Machine, Common Crawl",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "subjack": {
+      "command": ["subjack"],
+      "description": "Subdomain takeover vulnerability scanner",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "kiterunner": {
+      "command": ["kr"],
+      "description": "API endpoint discovery and fuzzing tool",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "dnsx": {
+      "command": ["dnsx"],
+      "description": "DNS toolkit with brute force and resolution",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "uncover": {
+      "command": ["uncover"],
+      "description": "Discover exposed hosts from multiple search engines",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "wapiti": {
+      "command": ["wapiti"],
+      "description": "Web application vulnerability scanner",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "wfuzz": {
+      "command": ["wfuzz"],
+      "description": "Web application fuzzer",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "arjun": {
+      "command": ["arjun"],
+      "description": "HTTP parameter discovery suite",
+      "category": "web-attack",
+      "dangerous": false
+    },
+    "cewl": {
+      "command": ["cewl"],
+      "description": "Custom wordlist generator from websites",
+      "category": "wordlist",
+      "dangerous": false
+    },
+    "crunch": {
+      "command": ["crunch"],
+      "description": "Wordlist generator based on character sets",
+      "category": "wordlist",
+      "dangerous": false
+    },
+    "grype": {
+      "command": ["grype"],
+      "description": "Container image vulnerability scanner",
+      "category": "cloud",
+      "dangerous": false
+    },
+    "syft": {
+      "command": ["syft"],
+      "description": "Software Bill of Materials (SBOM) generator",
+      "category": "cloud",
+      "dangerous": false
+    },
+    "checkov": {
+      "command": ["checkov"],
+      "description": "Infrastructure as Code security scanner",
+      "category": "cloud",
+      "dangerous": false
+    },
+    "semgrep": {
+      "command": ["semgrep"],
+      "description": "Static analysis (SAST) for finding bugs and vulnerabilities",
+      "category": "sast",
+      "dangerous": false
+    },
+    "bandit": {
+      "command": ["bandit"],
+      "description": "Python security linter",
+      "category": "sast",
+      "dangerous": false
+    },
+    "gitleaks": {
+      "command": ["gitleaks"],
+      "description": "Secrets detection in git repositories",
+      "category": "secrets",
+      "dangerous": false
+    },
+    "trufflehog": {
+      "command": ["trufflehog"],
+      "description": "Deep secret scanning in git repos and files",
+      "category": "secrets",
+      "dangerous": false
+    },
+    "apktool": {
+      "command": ["apktool"],
+      "description": "Android APK reverse engineering tool",
+      "category": "reverse-engineering",
+      "dangerous": false
+    },
+    "jadx": {
+      "command": ["jadx"],
+      "description": "Java and Android source code decompiler",
+      "category": "reverse-engineering",
+      "dangerous": false
+    },
+    "zmap": {
+      "command": ["zmap"],
+      "description": "Fast single-packet network scanner",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "unicornscan": {
+      "command": ["unicornscan"],
+      "description": "Asynchronous TCP and UDP scanner",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "netdiscover": {
+      "command": ["netdiscover"],
+      "description": "ARP scan for network discovery",
+      "category": "information-gathering",
+      "dangerous": false
+    },
+    "ligolo": {
+      "command": ["ligolo-proxy"],
+      "description": "Tunneling tool for pentesting (alternative to chisel)",
+      "category": "post-exploitation",
+      "dangerous": false
+    },
+    "sleuthkit": {
+      "command": ["fls"],
+      "description": "Disk forensics suite",
+      "category": "forensics",
+      "dangerous": false
+    },
+    "bulk-extractor": {
+      "command": ["bulk_extractor"],
+      "description": "Extract emails, URLs, credit cards from disk images",
+      "category": "forensics",
+      "dangerous": false
+    },
+    "foremost": {
+      "command": ["foremost"],
+      "description": "File carving and recovery tool",
+      "category": "forensics",
+      "dangerous": false
+    },
+    "cloud_enum": {
+      "command": ["cloud_enum"],
+      "description": "Multi-cloud OSINT enumeration",
+      "category": "cloud",
+      "dangerous": false
+    }
+  }
+}

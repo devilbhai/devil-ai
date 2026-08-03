@@ -1,0 +1,124 @@
+appId: com.devil-ai.desktop
+productName: Devil-ai
+copyright: Copyright (c) 2024-2026 Devil-ai Contributors
+directories:
+  buildResources: resources
+  output: release
+
+files:
+  - "out/**/*"
+
+asar: true
+
+asarUnpack:
+  - "node_modules/libsql/**"
+  - "node_modules/@libsql/**"
+  - "node_modules/@neon-rs/**"
+  - "node_modules/detect-libc/**"
+  - "node_modules/node-pty/**"
+
+# Bundle the CLI launcher script into the app package.
+# macOS: Contents/Resources/bin/devil-ai
+# Linux: resources/bin/devil-ai
+# Windows: resources/bin/devil-ai.cmd
+extraResources:
+  - from: resources/bin
+    to: bin
+    filter:
+      - "**/*"
+  # Tray icon assets — must be at the root of process.resourcesPath
+  # so tray.ts can find them via path.join(process.resourcesPath, "iconTemplate.png")
+  - from: resources/iconTemplate.png
+    to: iconTemplate.png
+  - from: resources/iconTemplate@2x.png
+    to: iconTemplate@2x.png
+  - from: resources/icon.png
+    to: icon.png
+  - from: resources/iconTray.png
+    to: iconTray.png
+
+# Rebuild native modules for Electron's Node.js ABI during packaging.
+npmRebuild: true
+
+artifactName: "${productName}-${version}-${os}-${arch}.${ext}"
+
+# Inject version from package.json into the built app
+extraMetadata:
+  main: ./out/main/index.js
+
+mac:
+  files:
+    - "out/**/*"
+    - "node_modules/electron-liquid-glass/**/*"
+  icon: resources/icon-macos.png
+  target:
+    # dmg is the distributable installer; zip is what Squirrel.Mac downloads
+    # for in-place auto-update. Both are required for electron-updater on macOS.
+    - target: dmg
+      arch: [x64, arm64]
+    - target: zip
+      arch: [x64, arm64]
+  category: public.app-category.developer-tools
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  notarize: false
+  forceCodeSigning: false
+  entitlements: entitlements.mac.plist
+  entitlementsInherit: entitlements.mac.plist
+
+win:
+  icon: resources/icon.ico
+  # cscLink: resources/devil-ai-windows.pfx
+  # cscKeyPassword: ${CSC_WINDOWS_KEY_PASSWORD}
+  signtoolOptions:
+    publisherName: Devil-ai
+  target:
+    - target: nsis
+      arch: [x64]
+
+linux:
+  executableName: devil-ai
+  icon: resources/linux-icons
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+  category: Development
+  maintainer: devil-ai
+  syncDesktopName: true
+
+deb:
+  depends:
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libgbm1
+    - libgdk-pixbuf-2.0-0
+    - libasound2 | libasound2t64
+    - libatspi2.0-0
+    - curl
+    - git
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Devil AI
+  installerIcon: resources/icon.ico
+  uninstallerIcon: resources/icon.ico
+  installerHeaderIcon: resources/icon.ico
+  deleteAppDataOnUninstall: true
+  runAfterFinish: true
+
+# Auto-update via GitHub Releases — free hosting + CDN, no VPS bandwidth.
+# electron-updater reads this at build time and writes it into app-update.yml.
+# The GitHub Actions release workflow uploads the artifacts + latest*.yml
+# manifests to the release, so the app updates straight from GitHub.
+publish:
+  provider: github
+  owner: devilbhai
+  repo: devil-ai

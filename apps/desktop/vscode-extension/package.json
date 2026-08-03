@@ -1,0 +1,171 @@
+{
+	"name": "devil-ai-vscode",
+	"displayName": "Devil AI - AI Coding Assistant",
+	"description": "AI-powered coding assistant integrated with Devil AI desktop app",
+	"version": "0.1.0",
+	"publisher": "devil-ai",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "devil-ai.sendSelection",
+				"title": "Devil AI: Send Selection to AI"
+			},
+			{
+				"command": "devil-ai.explainCode",
+				"title": "Devil AI: Explain Code"
+			},
+			{
+				"command": "devil-ai.reviewCode",
+				"title": "Devil AI: Review Code"
+			},
+			{
+				"command": "devil-ai.fixCode",
+				"title": "Devil AI: Fix Code"
+			},
+			{
+				"command": "devil-ai.optimizeCode",
+				"title": "Devil AI: Optimize Code"
+			},
+			{
+				"command": "devil-ai.writeTests",
+				"title": "Devil AI: Write Tests"
+			},
+			{
+				"command": "devil-ai.openChat",
+				"title": "Devil AI: Open Chat Panel"
+			},
+			{
+				"command": "devil-ai.applySuggestion",
+				"title": "Devil AI: Apply AI Suggestion"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "devil-ai.sendSelection",
+					"when": "editorHasSelection",
+					"group": "devil-ai@1"
+				},
+				{
+					"command": "devil-ai.explainCode",
+					"when": "editorHasSelection",
+					"group": "devil-ai@2"
+				},
+				{
+					"command": "devil-ai.reviewCode",
+					"when": "editorHasSelection",
+					"group": "devil-ai@3"
+				},
+				{
+					"command": "devil-ai.fixCode",
+					"when": "editorHasSelection",
+					"group": "devil-ai@4"
+				},
+				{
+					"command": "devil-ai.optimizeCode",
+					"when": "editorHasSelection",
+					"group": "devil-ai@5"
+				},
+				{
+					"command": "devil-ai.writeTests",
+					"when": "editorHasSelection",
+					"group": "devil-ai@6"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "devil-ai.sendSelection",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "devil-ai.explainCode",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "devil-ai.reviewCode",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "devil-ai.fixCode",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "devil-ai.optimizeCode",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "devil-ai.writeTests",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "devil-ai.openChat",
+					"when": "*"
+				},
+				{
+					"command": "devil-ai.applySuggestion",
+					"when": "*"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "devil-ai",
+					"title": "Devil AI",
+					"icon": "resources/devil-ai-icon.svg"
+				}
+			]
+		},
+		"views": {
+			"devil-ai": [
+				{
+					"type": "webview",
+					"id": "devil-ai.chat",
+					"name": "AI Chat"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Devil AI",
+			"properties": {
+				"devil-ai.serverUrl": {
+					"type": "string",
+					"default": "http://localhost:3100",
+					"description": "Devil AI server URL"
+				},
+				"devil-ai.autoApply": {
+					"type": "boolean",
+					"default": false,
+					"description": "Automatically apply AI suggestions without confirmation"
+				},
+				"devil-ai.showNotifications": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show notifications for AI responses"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint src --ext ts"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.0",
+		"@types/vscode": "^1.85.0",
+		"@typescript-eslint/eslint-plugin": "^6.15.0",
+		"@typescript-eslint/parser": "^6.15.0",
+		"eslint": "^8.56.0",
+		"typescript": "^5.3.3"
+	}
+}

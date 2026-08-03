@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Devil AI Telemetry Dashboard</title>
+ <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; padding: 20px; }
+  .header { text-align: center; margin-bottom: 30px; }
+  .header h1 { font-size: 28px; color: #ef4444; }
+  .header p { color: #888; margin-top: 5px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+  .stat-card { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; }
+  .stat-card h3 { color: #888; font-size: 14px; margin-bottom: 8px; }
+  .stat-card .value { font-size: 32px; font-weight: bold; color: #ef4444; }
+  .events { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; }
+  .events h2 { margin-bottom: 15px; color: #fff; }
+  .event-row { display: flex; gap: 15px; padding: 12px; border-bottom: 1px solid #333; }
+  .event-row:last-child { border-bottom: none; }
+  .event-type { padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+  .event-type.error { background: #dc262620; color: #ef4444; }
+  .event-type.usage { background: #3b82f620; color: #3b82f6; }
+  .event-type.crash { background: #f59e0b20; color: #f59e0b; }
+  .event-data { flex: 1; font-family: monospace; font-size: 12px; color: #aaa; word-break: break-all; }
+  .event-time { color: #666; font-size: 12px; }
+  .filter { margin-bottom: 15px; }
+  .filter select { background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 8px 12px; border-radius: 8px; }
+  .loading { text-align: center; padding: 40px; color: #888; }
+ </style>
+</head>
+<body>
+ <div class="header">
+  <h1>🔥 Devil AI Telemetry</h1>
+  <p>Error logs and usage data from all users</p>
+ </div>
+
+ <div class="stats" id="stats">
+  <div class="loading">Loading stats...</div>
+ </div>
+
+ <div class="filter">
+  <select id="typeFilter" onchange="loadEvents()">
+   <option value="">All Types</option>
+   <option value="error">Errors</option>
+   <option value="usage">Usage</option>
+   <option value="crash">Crashes</option>
+  </select>
+ </div>
+
+ <div class="events">
+  <h2>Recent Events</h2>
+  <div id="eventsList">
+   <div class="loading">Loading events...</div>
+  </div>
+ </div>
+
+ <script>
+  const API_BASE = window.location.origin;
+
+  async function loadStats() {
+   try {
+    const res = await fetch(`${API_BASE}/stats`);
+    const data = await res.json();
+    
+    document.getElementById('stats').innerHTML = `
+     <div class="stat-card">
+      <h3>Total Events</h3>
+      <div class="value">${data.total}</div>
+     </div>
+     <div class="stat-card">
+      <h3>Today</h3>
+      <div class="value">${data.today}</div>
+     </div>
+     <div class="stat-card">
+      <h3>Errors</h3>
+      <div class="value">${data.byType.find(t => t.type === 'error')?.count || 0}</div>
+     </div>
+     <div class="stat-card">
+      <h3>Crashes</h3>
+      <div class="value">${data.byType.find(t => t.type === 'crash')?.count || 0}</div>
+     </div>
+    `;
+   } catch (err) {
+    console.error('Failed to load stats:', err);
+   }
+  }
+
+  async function loadEvents() {
+   try {
+    const type = document.getElementById('typeFilter').value;
+    const res = await fetch(`${API_BASE}/events?limit=50${type ? `&type=${type}` : ''}`);
+    const data = await res.json();
+    
+    if (data.events.length === 0) {
+     document.getElementById('eventsList').innerHTML = '<div class="loading">No events found</div>';
+     return;
+    }
+
+    document.getElementById('eventsList').innerHTML = data.events.map(event => `
+     <div class="event-row">
+      <span class="event-type ${event.type}">${event.type}</span>
+      <div class="event-data">${JSON.stringify(event.data).substring(0, 200)}${JSON.stringify(event.data).length > 200 ? '...' : ''}</div>
+      <div class="event-time">${new Date(event.timestamp).toLocaleString()}</div>
+     </div>
+    `).join('');
+   } catch (err) {
+    console.error('Failed to load events:', err);
+    document.getElementById('eventsList').innerHTML = '<div class="loading">Failed to load events</div>';
+   }
+  }
+
+  // Initial load
+  loadStats();
+  loadEvents();
+
+  // Refresh every 30 seconds
+  setInterval(() => {
+   loadStats();
+   loadEvents();
+  }, 30000);
+ </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String         @id @default(uuid())
+  email         String         @unique
+  passwordHash  String
+  name          String?
+  role          String         @default("USER") // USER, ADMIN
+  status        String         @default("ACTIVE") // ACTIVE, BANNED
+  githubHandle  String?
+  githubToken   String?
+  activeDeviceId String?
+  lastActiveAt  DateTime?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  resetCode     String?
+  resetCodeExpiry DateTime?
+  
+  subscriptions Subscription[]
+  payments      Payment[]
+  workspaces    Workspace[]
+  connectorTokens ConnectorToken[]
+}
+
+model Plan {
+  id             String  @id @default(uuid())
+  slug           String  @unique // WEEKLY, MONTHLY, YEARLY, LIFETIME
+  name           String  // "Weekly", "Monthly", "Yearly", "Lifetime"
+  price          Int     // in paise (4900 = ₹49)
+  currency       String  @default("INR")
+  durationDays   Int     // 7, 30, 365, 36500
+  features       String  // comma-separated features
+  isActive       Boolean @default(true)
+  isBestValue    Boolean @default(false)
+  sortOrder      Int     @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Workspace {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  name      String
+  path      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Subscription {
+  id                 String   @id @default(uuid())
+  userId             String
+  user               User     @relation(fields: [userId], references: [id])
+  planId             String   // WEEKLY, MONTHLY, YEARLY, LIFETIME
+  status             String   @default("ACTIVE") // ACTIVE, CANCELLED, EXPIRED
+  currentPeriodStart DateTime @default(now())
+  currentPeriodEnd   DateTime
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Payment {
+  id                String   @id @default(uuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id])
+  amount            Int
+  currency          String   @default("INR")
+  razorpayOrderId   String?  @unique
+  razorpayPaymentId String?  @unique
+  status            String   @default("PENDING") // PENDING, COMPLETED, FAILED
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Coupon {
+  id                 String   @id @default(uuid())
+  code               String   @unique
+  discountPercentage Int
+  maxUses            Int      @default(1)
+  currentUses        Int      @default(0)
+  expiresAt          DateTime?
+  createdAt          DateTime @default(now())
+}
+
+model DeviceTrial {
+  id        String   @id @default(uuid())
+  deviceId  String   @unique
+  createdAt DateTime @default(now())
+}
+
+model ConnectorToken {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider     String   // gmail, google-drive, slack, etc.
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime?
+  scopes       String?  // comma-separated
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, provider])
+}

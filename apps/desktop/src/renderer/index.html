@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' http://127.0.0.1:* https://devil-ai.agribee.in https://server.agribee.in; font-src 'self';">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <title>Devil-ai</title>
+    <style>
+      /* Splash screen styles -- inlined so they render before any JS loads. */
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* Transparent so macOS glass/vibrancy shows through. The native
+           window chrome provides the visual backdrop. */
+        background: transparent;
+        transition: opacity 300ms ease-out;
+        /* Allow dragging the window from the splash on macOS */
+        -webkit-app-region: drag;
+      }
+      #splash.hiding {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #splash svg {
+        height: 20px;
+        width: auto;
+        color: hsl(var(--foreground, 0 0% 93%));
+      }
+      #splash .dots {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 24px;
+      }
+      #splash .dots span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: hsl(var(--muted-foreground, 0 0% 45%) / 0.4);
+        animation: splash-pulse 1.2s ease-in-out infinite;
+      }
+      #splash .dots span:nth-child(2) { animation-delay: 150ms; }
+      #splash .dots span:nth-child(3) { animation-delay: 300ms; }
+      @keyframes splash-pulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Prevent flash of wrong color scheme before React hydrates.
+      // Reads from the same localStorage key used by Zustand persist.
+      try {
+        var prefs = JSON.parse(localStorage.getItem('devil-ai-preferences') || '{}');
+        var state = prefs.state || {};
+        var scheme = state.colorScheme || 'light';
+        var themeId = state.theme || 'default';
+        var cls = scheme;
+        if (scheme === 'system') {
+          cls = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.classList.add(cls);
+        if (themeId !== 'default') {
+          document.documentElement.classList.add('theme-' + themeId);
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <script>
+      // React Scan: dev-only render visualizer. Loaded via script tag outside
+      // Vite's module graph so it survives HMR. Uses document.write to ensure
+      // the script loads synchronously before React's module script executes.
+      // Toggle via Command Palette (Cmd+K > "React Scan"). Only active in dev
+      // since production React builds don't expose the DevTools hook.
+      try {
+        if (localStorage.getItem('devil-ai:reactScan') === 'true') {
+          document.write('<script src="https://unpkg.com/react-scan/dist/auto.global.js"><\/script>');
+        }
+      } catch (e) {}
+    </script>
+    <!-- Splash screen: renders immediately before React/JS loads.
+         The React StartupOverlay component removes this element once it mounts. -->
+    <div id="splash" role="status" aria-live="polite" aria-label="Loading Devil AI">
+      <span style="font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;color:currentColor;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',system-ui,sans-serif" aria-hidden="true">Devil AI</span>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>
