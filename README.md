@@ -2,13 +2,14 @@
 
 <img src="https://deviltools.in/wp-content/uploads/2021/11/2devil_logo_2025.webp" width="150" alt="Devil AI"/>
 
-# Devil AI
+# 👿 Devil AI
 
-### Autonomous AI Coding Assistant • Standalone IDE • Multi-Agent Software Engineer
+### Autonomous AI Software Engineering Platform
+
+#### **The AI That Codes Like Your Entire Engineering Organization**
 
 <p>
-  <strong>Build. Refactor. Debug. Research. Deploy.</strong><br/>
-  Everything from a single AI-native development environment.
+Build • Plan • Refactor • Debug • Review • Deploy • Automate
 </p>
 
 <p>
@@ -18,115 +19,123 @@
 </a>
 
 <a href="LICENSE">
-<img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge"/>
+<img src="https://img.shields.io/github/license/devilbhai/devil-ai?style=for-the-badge"/>
 </a>
 
 <a href="https://github.com/devilbhai/devil-ai/stargazers">
 <img src="https://img.shields.io/github/stars/devilbhai/devil-ai?style=for-the-badge&color=FFD700"/>
 </a>
 
-<a href="https://opencode.ai">
+<a href="https://github.com/devilbhai/devil-ai/network/members">
+<img src="https://img.shields.io/github/forks/devilbhai/devil-ai?style=for-the-badge"/>
+</a>
+
+<a href="https://github.com/devilbhai/devil-ai/issues">
+<img src="https://img.shields.io/github/issues/devilbhai/devil-ai?style=for-the-badge"/>
+</a>
+
+<a href="#">
 <img src="https://img.shields.io/badge/OpenCode-Native-purple?style=for-the-badge"/>
+</a>
+
+<a href="#">
+<img src="https://img.shields.io/badge/OmniRoute-Included-blueviolet?style=for-the-badge"/>
+</a>
+
+<a href="#">
+<img src="https://img.shields.io/badge/MCP-Servers-success?style=for-the-badge"/>
+</a>
+
+<a href="#">
+<img src="https://img.shields.io/badge/1000%2B-AI%20Skills-orange?style=for-the-badge"/>
 </a>
 
 </p>
 
 ---
 
-### ⚡ AI That Codes Like Your Entire Engineering Team
+# ⚡ The Future of Software Engineering Starts Here
 
-Devil AI is an **autonomous AI software engineering platform** that combines powerful LLMs, multi-agent orchestration, Git worktree isolation, local semantic search, and intelligent automation into one modern desktop IDE.
+Devil AI isn't just another AI coding assistant.
 
-Instead of just generating code, Devil AI understands your entire repository, plans tasks, writes production-ready implementations, fixes bugs, reviews pull requests, executes terminal workflows, and helps ship software faster.
+It is a complete **AI-native software engineering platform** capable of understanding your repository, planning implementations, coordinating multiple autonomous AI agents, executing terminal commands, reviewing pull requests, deploying applications, and automating your complete development workflow.
 
----
-
-</div>
-
-# ✨ Highlights
-
-- 🧠 Autonomous Multi-Agent AI
-- ⚡ Native OpenCode Engine
-- 🌿 Git Worktree Isolation
-- 🔍 Local RAG Search
-- 📊 Repository Knowledge Graph
-- 🤖 AI Code Reviews
-- 🚀 One-click Deployments
-- 🧪 Automated Testing
-- 📱 Telegram Remote Control
-- 🎙️ Voice Pair Programming
-- 🌙 Beautiful Glass UI
-- 🔒 100% Local Code Indexing
+Powered by **OpenCode**, **OmniRoute**, **Git Worktrees**, **Local RAG**, **MCP Servers**, and **1000+ Skills**, Devil AI works like an entire engineering team inside a single desktop application.
 
 ---
 
 # 🚀 Why Devil AI?
 
-Unlike traditional AI assistants that only answer prompts, Devil AI acts as a complete software engineering partner.
+Traditional AI tools answer prompts.
 
-It can:
+**Devil AI ships software.**
 
-- Understand entire repositories
-- Plan complex implementations
-- Spawn specialized AI agents
-- Write production-quality code
-- Run tests automatically
-- Debug failures
-- Refactor architectures
-- Generate documentation
-- Review pull requests
-- Deploy applications
+✔ Understands your complete codebase
 
-Everything happens from a single AI-native workspace.
+✔ Plans complex engineering tasks
 
----
+✔ Spawns specialized AI workers
 
-# 🤖 Multi-Agent Swarm
+✔ Writes production-quality code
 
-Complex prompts are automatically divided into specialized AI workers.
+✔ Executes terminal commands
 
-```
-User Request
-      │
-      ▼
- Planner Agent
-      │
- ┌────┼────┐
- ▼    ▼    ▼
-Research
-Architecture
-Code Generation
-Testing
-Debugging
-Documentation
-      │
-      ▼
- Final Merge
-```
+✔ Runs automated tests
 
-Each agent works independently before combining results into one final implementation.
+✔ Fixes bugs automatically
+
+✔ Refactors large codebases
+
+✔ Reviews pull requests
+
+✔ Deploys applications
+
+✔ Connects with your entire workspace
+
+✔ Automates repetitive engineering work
 
 ---
 
-# 🔥 Features
+# 🧠 Autonomous Multi-Agent Swarm
+
+Every complex request is intelligently divided into specialized AI agents.
+
+```text
+                 User Request
+                      │
+                      ▼
+               Planner Agent
+                      │
+      ┌───────────────┼───────────────┐
+      ▼               ▼               ▼
+ Research       Architecture      Code Generation
+      ▼               ▼               ▼
+ Testing         Debugging       Documentation
+      ▼               ▼               ▼
+             Final Merge & Delivery
+```
+
+Every agent works independently inside isolated Git worktrees before merging results into a production-ready implementation.
+
+---
+
+# 🔥 Core Features
 
 ## 🧠 Autonomous Planning
 
+- Multi-step reasoning
 - Task decomposition
-- Multi-step execution
-- Live progress tracking
-- Automatic retries
+- Automatic execution
 - Self-healing workflows
+- Intelligent retries
+- Dependency analysis
+- Progress visualization
 
 ---
 
-## 💻 AI Coding
+## 💻 AI Software Engineer
 
-- Generate entire applications
-- Edit multiple files
-- Large-scale refactoring
-- Architecture migrations
-- Framework upgrades
+Generate, modify and maintain entire applications.
 
 Supports:
 
@@ -136,126 +145,296 @@ Supports:
 - Angular
 - Node.js
 - Bun
-- Go
-- Rust
+- Express
+- Laravel
+- PHP
 - Python
-- Java
-- C#
+- Django
+- FastAPI
 - Flutter
 - Swift
 - Kotlin
-- PHP
-- Laravel
-- Django
-- Express
+- Java
+- C#
+- Rust
+- Go
+- Electron
+- Tauri
+- React Native
+
+…and virtually every modern programming language.
 
 ---
 
 ## 🌿 Git Worktree Engine
 
-Every autonomous task executes inside isolated Git worktrees.
+Every AI task runs inside its own isolated Git worktree.
 
-Benefits:
+Benefits
 
 - Safe experimentation
-- Easy rollback
+- Automatic rollback
 - Parallel implementations
 - Zero repository corruption
+- Independent testing
+- Clean pull requests
 
 ---
 
-## 🔍 Local RAG Search
+## 🔍 Local RAG Engine
 
-Devil AI indexes your project locally.
+Devil AI indexes your repository locally.
 
-Features:
+Features
 
-- TF-IDF Semantic Search
-- Instant Symbol Search
-- Dependency Analysis
-- CodeGraph Navigation
-- Zero Cloud Uploads
+- Semantic Search
+- Symbol Search
+- CodeGraph
+- Dependency Mapping
+- API Discovery
+- Repository Intelligence
 
-Your code never leaves your machine.
-
----
-
-## ⚡ OpenCode Native
-
-Built directly on OpenCode.
-
-Benefits:
-
-- Lightning-fast responses
-- Native tool execution
-- Terminal integration
-- File system awareness
-- Context optimization
+Your code never leaves your computer.
 
 ---
 
-## 🎨 Premium Desktop Experience
+# 🛣 OmniRoute Included
 
-- Glassmorphism UI
-- Native Desktop App
-- Dark Mode
-- Command Palette
-- Keyboard-first workflow
-- Split Editor
-- AI Chat Sidebar
-- Time Travel History
+Unlike traditional AI clients, Devil AI includes **OmniRoute**.
+
+Automatically route every request to the best AI model based on:
+
+- Task complexity
+- Response speed
+- Token cost
+- Provider health
+- Model strengths
+- Custom routing rules
+
+Supported Providers
+
+- OpenAI
+- Claude
+- Gemini
+- Groq
+- DeepSeek
+- Mistral
+- xAI
+- Ollama
+- LM Studio
+- OpenRouter
+- Azure OpenAI
+- AWS Bedrock
+- DevilRoute
+
+One request.
+
+Best model.
+
+Maximum performance.
 
 ---
 
-## 📱 Remote Development
+# 🧩 MCP Server Support
 
-Control Devil AI anywhere.
+Native support for the **Model Context Protocol (MCP)**.
 
-Supports:
+Connect AI directly with external tools.
+
+Examples
+
+- Databases
+- File Systems
+- Docker
+- Kubernetes
+- GitHub
+- GitLab
+- Figma
+- Browser Automation
+- APIs
+- Custom Internal Tools
+
+Works with both local and remote MCP servers.
+
+---
+
+# ⚡ 1000+ AI Skills
+
+Devil AI includes an extensive library of production-ready AI skills.
+
+Examples
+
+- Code Reviews
+- Security Audits
+- Architecture Planning
+- UI Generation
+- SQL Optimization
+- API Documentation
+- Test Generation
+- Git Automation
+- Refactoring
+- DevOps
+- CI/CD
+- Infrastructure
+- Data Analysis
+- Debugging
+- Performance Optimization
+- AI Agent Creation
+
+…and over **1000+ specialized workflows**.
+
+---
+
+# 🔌 Enterprise Connectors
+
+Configure credentials once as an administrator.
+
+Each user securely connects their own accounts.
+
+Supported services include:
+
+### Google Workspace
+
+- Gmail
+- Google Drive
+- Google Docs
+- Google Sheets
+- Calendar
+- Contacts
+- Tasks
+- Analytics
+- Search Console
+- Photos
+- YouTube
+- Google Chat
+
+### Development
+
+- GitHub
+- GitLab
+- Bitbucket
+- Docker
+- Kubernetes
+- Vercel
+- Netlify
+- Cloudflare
+
+### Productivity
+
+- Slack
+- Discord
+- Notion
+- Linear
+- Asana
+- Trello
+- Jira
+- ClickUp
+- Monday.com
+
+### Design
+
+- Figma
+- Canva
+
+### Business
+
+- HubSpot
+- Salesforce
+- Stripe
+- Shopify
+- QuickBooks
+- Dropbox
+- Box
+- DocuSign
+- Outlook
+
+More connectors are continuously being added.
+
+---
+
+# 🎙 Voice Pair Programming
+
+Talk naturally with Devil AI.
+
+- Voice coding
+- Hands-free debugging
+- Architecture discussions
+- Code explanations
+- Live implementation
+
+---
+
+# 📱 Remote Development
+
+Control Devil AI from anywhere.
+
+Features
 
 - Telegram Bot
-- Secure Cloudflare Tunnel
+- Cloudflare Tunnel
+- Remote Terminal
 - OTP Authentication
 - Mobile Diff Approval
-- Remote Terminal Commands
+- Deployment Control
 
 ---
 
-# 🌍 Supported AI Providers
+# 🚀 Deployment Automation
 
-| Provider | Supported |
-|-----------|-----------|
-| OpenAI | ✅ |
-| Claude | ✅ |
-| Gemini | ✅ |
-| Groq | ✅ |
-| Ollama | ✅ |
-| LM Studio | ✅ |
-| OpenRouter | ✅ |
-| Azure OpenAI | ✅ |
-| AWS Bedrock | ✅ |
-| DevilRoute | ✅ |
+Deploy directly to
+
+- Docker
+- Kubernetes
+- Railway
+- Vercel
+- Netlify
+- VPS
+- AWS
+- Azure
+- Google Cloud
+- DigitalOcean
+
+One click.
+
+Production ready.
 
 ---
 
-# 🔌 Integrations
+# 🎨 Beautiful Native Desktop Experience
 
-| Service | Features |
-|----------|----------|
-| GitHub | PR Review, Issues, Branches |
-| GitLab | Repository Automation |
-| Bitbucket | Source Control |
-| Docker | Container Management |
-| Kubernetes | Cluster Deployment |
-| Vercel | Deployments |
-| Netlify | Static Hosting |
-| Cloudflare | Tunnel & DNS |
-| PostgreSQL | Database Tools |
-| SQLite | Local Database |
-| Prisma | ORM Integration |
-| Drizzle | Schema Management |
-| Telegram | Remote Control |
-| Discord | Notifications |
+- Glassmorphism UI
+- AI Chat Sidebar
+- Split Editor
+- Command Palette
+- Time Travel History
+- Native Notifications
+- Keyboard-first Workflow
+- Multi-window Support
+
+Available for
+
+- macOS (Apple Silicon)
+- macOS Intel
+- Windows
+- Linux
+
+---
+
+# 🔒 Privacy First
+
+✅ Local Repository Indexing
+
+✅ Local Embeddings
+
+✅ Bring Your Own API Keys
+
+✅ Local AI Models
+
+✅ No Mandatory Cloud Upload
+
+✅ Secure Worktree Isolation
+
+✅ Enterprise Friendly
 
 ---
 
@@ -263,16 +442,9 @@ Supports:
 
 ## Desktop
 
-Download the latest release:
+Download the latest release
 
 https://github.com/devilbhai/devil-ai/releases
-
-Available for:
-
-- macOS (Apple Silicon)
-- macOS Intel
-- Windows
-- Linux
 
 ---
 
@@ -282,11 +454,13 @@ Available for:
 curl -fsSL https://raw.githubusercontent.com/devilbhai/devil-ai/main/packages/devil-ai-cli/install.sh | bash
 ```
 
-Start
+Configure
 
 ```bash
 devil-ai config
 ```
+
+Start
 
 ```bash
 devil-ai start
@@ -294,64 +468,38 @@ devil-ai start
 
 ---
 
-# ⌨️ Shortcuts
+# ⌨ Keyboard Shortcuts
 
 | Shortcut | Action |
-|----------|--------|
+|-----------|--------|
 | Cmd/Ctrl + K | Command Palette |
 | Cmd/Ctrl + Enter | Execute AI Task |
-| Cmd/Ctrl + Shift + F | Repository Search |
+| Cmd/Ctrl + Shift + F | Semantic Repository Search |
 | Cmd/Ctrl + Z | Undo AI Changes |
 | Cmd/Ctrl + B | Sidebar |
 | Cmd/Ctrl + P | Quick File Search |
 
 ---
 
-# 🏗 Architecture
+# 🏗 High-Level Architecture
 
+```text
+                     Devil AI
+                         │
+ ┌───────────────────────┼────────────────────────┐
+ ▼                       ▼                        ▼
+OpenCode             OmniRoute             Local RAG
+ ▼                       ▼                        ▼
+Multi-Agent        Model Routing       Repository Index
+         ▼               ▼                 ▼
+           Git Worktree Execution Engine
+                         │
+     ┌────────────┬────────────┬────────────┐
+     ▼            ▼            ▼            ▼
+ Terminal      Editor      Connectors     MCP
+                         │
+                 Deploy Anywhere
 ```
-               ┌──────────────┐
-               │   Devil AI   │
-               └──────┬───────┘
-                      │
-      ┌───────────────┼───────────────┐
-      ▼               ▼               ▼
- Multi-Agent      OpenCode       Local RAG
-      │               │               │
-      └───────────────┼───────────────┘
-                      ▼
-               Git Worktree Engine
-                      │
-          ┌───────────┼────────────┐
-          ▼           ▼            ▼
-       Terminal     Editor      Deployment
-```
-
----
-
-# 📈 Designed For
-
-- Senior Developers
-- AI Engineers
-- Startup Teams
-- DevOps Engineers
-- Full Stack Developers
-- Open Source Maintainers
-- Enterprise Teams
-
----
-
-# 🔒 Privacy First
-
-✅ Local repository indexing
-
-✅ No mandatory cloud upload
-
-✅ Bring your own API keys
-
-✅ Local models supported
-
-✅ Secure worktree execution
 
 ---
 
@@ -360,11 +508,14 @@ devil-ai start
 - TypeScript
 - Bun
 - React
-- OpenCode
 - Tauri
-- Turborepo
-- TailwindCSS
-- Shadcn UI
+- OpenCode
+- OmniRoute
+- Tailwind CSS
+- shadcn/ui
+- Git Worktrees
+- Local RAG
+- MCP
 
 ---
 
@@ -376,7 +527,11 @@ MIT License
 
 <div align="center">
 
-## ⭐ If Devil AI helps you build faster, give the repository a Star.
+## ⭐ If Devil AI saves you hours every week, consider giving the project a Star.
+
+### Build Faster.
+### Ship Smarter.
+### Stay in Control.
 
 **Made with ❤️ by Ghost Rider (devilbhai)**
 
