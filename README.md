@@ -80,10 +80,11 @@ Devil AI seamlessly connects with leading LLM providers, cloud infrastructure, d
 ### Desktop App (macOS, Windows, Linux)
 Download pre-built binary installers directly from [GitHub Releases](https://github.com/devilbhai/devil-ai/releases):
 
-- **macOS Apple Silicon (M1/M2/M3):** `Devil-ai-1.14.0-mac-arm64.dmg`
-- **macOS Intel:** `Devil-ai-1.14.0-mac-x64.dmg`
-- **Windows:** `Devil-ai-1.14.0-win-x64.exe`
-
+**App Available For**
+- **macOS Apple Silicon (M1/M2/M3):** 
+- **macOS Intel:** 
+- **Windows:**
+  
 ### CLI Quickstart
 
 Install the zero-dependency CLI executable:
